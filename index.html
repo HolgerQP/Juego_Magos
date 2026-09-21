@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090d1f">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), usb=(), serial=(), bluetooth=()">
   <title>Duelo Mágico</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="game-shell" aria-label="Duelo mágico">
     <canvas id="game-canvas" aria-label="Arena nocturna con dos magos"></canvas>
-
     <section class="lobby-screen" id="lobby-screen" aria-label="Sala de partida">
       <div class="lobby-panel" id="lobby-menu">
         <div class="lobby-mark">✦</div>
@@ -21,7 +21,6 @@
         <button class="lobby-link local-play-button" id="local-play-button" type="button">JUGAR EN LOCAL</button>
         <p class="lobby-note">La prueba local usa dos pestañas del mismo origen. Para otros dispositivos se necesita un relay de signaling externo; el estado del juego permanece P2P.</p>
       </div>
-
       <div class="lobby-panel lobby-panel-compact" id="host-panel" hidden>
         <h2>PARTIDA CREADA</h2>
         <span class="lobby-label">CÓDIGO DE SALA</span>
@@ -31,7 +30,6 @@
         <p class="connection-state" id="host-state">🟡 ESPERANDO AL OPONENTE...</p>
         <button class="lobby-link" id="host-back-button" type="button">VOLVER</button>
       </div>
-
       <div class="lobby-panel lobby-panel-compact" id="join-panel" hidden>
         <h2>UNIRSE A PARTIDA</h2>
         <label class="lobby-label" for="room-code-input">CÓDIGO DE SALA</label>
@@ -41,9 +39,7 @@
         <button class="lobby-link" id="join-back-button" type="button">VOLVER</button>
       </div>
     </section>
-
     <div class="connection-badge" id="connection-badge" hidden>🟢 CONECTADO</div>
-
     <header class="top-bar">
       <section class="player-panel player-one" aria-label="Estadísticas del jugador 1">
         <span class="player-label">JUGADOR 1</span>
@@ -51,9 +47,7 @@
         <div class="stat-row mana"><span aria-hidden="true">🔵</span><span id="player1-mana">50</span></div>
         <div class="stat-row shield"><span aria-hidden="true">🛡️</span><span id="player1-shield">0</span></div>
       </section>
-
       <h1>⚔️ DUELO MÁGICO</h1>
-
       <section class="player-panel player-two" aria-label="Estadísticas del jugador 2">
         <span class="player-label">JUGADOR 2</span>
         <div class="stat-row"><span aria-hidden="true">❤️</span><span id="player2-hp">100</span></div>
@@ -61,14 +55,12 @@
         <div class="stat-row shield"><span aria-hidden="true">🛡️</span><span id="player2-shield">0</span></div>
       </section>
     </header>
-
     <section class="audio-panel" aria-label="Controles de audio">
       <button id="sound-toggle" type="button">🔊 SONIDO ON</button>
       <button id="music-toggle" type="button">🎵 MÚSICA ON</button>
       <label>EFECTOS <input id="effects-volume" type="range" min="0" max="100" value="65"></label>
       <label>MÚSICA <input id="music-volume" type="range" min="0" max="100" value="28"></label>
     </section>
-
     <div class="turn-indicator" id="turn-indicator">TU TURNO</div>
     <section class="card-area" aria-label="Zona de cartas">
       <div class="card-toolbar">
@@ -80,11 +72,7 @@
     </section>
     <div class="shuffle-overlay" id="shuffle-overlay" aria-live="polite">
       <div class="shuffle-stack" aria-hidden="true">
-        <span class="shuffle-card">✦</span>
-        <span class="shuffle-card">✧</span>
-        <span class="shuffle-card">☄</span>
-        <span class="shuffle-card">✺</span>
-        <span class="shuffle-card">◈</span>
+        <span class="shuffle-card">✦</span><span class="shuffle-card">✧</span><span class="shuffle-card">☄</span><span class="shuffle-card">✺</span><span class="shuffle-card">◈</span>
       </div>
       <strong>BARAJANDO EL MAZO</strong>
     </div>
